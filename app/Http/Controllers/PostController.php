@@ -21,6 +21,8 @@ class PostController extends Controller
 			'gogl' => 'google.com',
 			'leha' => ['name2' => 'лёха', 'age2' => 24, 'salary' => 200],
 			'arrcount' => 0,
+			'city' => ['Калонинград'],
+			'location' => ['country' => 'Швеция', 'city' => 'Стокгольм']
 		]);
 	}
 }
