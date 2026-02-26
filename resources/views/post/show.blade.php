@@ -25,4 +25,24 @@
 		@empty
 		<p>Москва</p>
 		@endforelse
+
+		@if ($year > 0)
+		<p>{{ $year }}</p>
+		@else
+		<p>{{ date('Y') }}</p>
+		@endif
+		
+		@if ($month > 0)
+		<p>{{ $month }}</p>
+		@else
+		<p>{{ date('m') }}</p>
+		@endif
+		
+		@if ($day > 0)
+		<p>{{ $day }}</p>
+		@else
+		<p>{{ date('d') }}</p>
+		@endif
+		
+		{!! $str !!}
 </x-layout>
