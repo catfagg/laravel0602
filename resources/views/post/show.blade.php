@@ -47,4 +47,18 @@
 		{!! $str !!}
 		
 		{{-- комментарий --}}
+
+		@if ($userAge > 18)
+		<p>ыыы</p>
+		@elseif ($userAge == 18)
+		<p>ууу</p>
+		@elseif ($userAge < 18)
+		<p>эээ</p>
+		@else
+		<p>иии</p>
+		@endif
+
+		@unless ($userAge >= 18)
+		<p>иууу</p>
+		@endunless
 </x-layout>

@@ -27,6 +27,7 @@ class PostController extends Controller
 			'month' => '6',
 			'day' => '14',
 			'str' => '<b>text</b>',
+			'userAge' => '24'
 		]);
 	}
 }
