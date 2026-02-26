@@ -15,69 +15,69 @@
 		<input value="{{ $var3 }}">
 		<a href="{{ $gogl }}">ссылдка</a>
 		@foreach ($leha as $elem)
-		<p>{{ $loop->count }}</p>
-		<p>{{ $elem }}</p>
-		{{ $arrcount++ }}
+			<p>{{ $loop->count }}</p>
+			<p>{{ $elem }}</p>
+			{{ $arrcount++ }}
 		@endforeach
 
 		@forelse ($city as $elem)
-		<p>{{ $elem }}</p>
+			<p>{{ $elem }}</p>
 		@empty
-		<p>Москва</p>
+			<p>Москва</p>
 		@endforelse
 
 		@if ($year > 0)
-		<p>{{ $year }}</p>
+			<p>{{ $year }}</p>
 		@else
-		<p>{{ date('Y') }}</p>
+			<p>{{ date('Y') }}</p>
 		@endif
-		
+
 		@if ($month > 0)
-		<p>{{ $month }}</p>
+			<p>{{ $month }}</p>
 		@else
-		<p>{{ date('m') }}</p>
+			<p>{{ date('m') }}</p>
 		@endif
-		
+
 		@if ($day > 0)
-		<p>{{ $day }}</p>
+			<p>{{ $day }}</p>
 		@else
-		<p>{{ date('d') }}</p>
+			<p>{{ date('d') }}</p>
 		@endif
-		
+
 		{!! $str !!}
-		
+
 		{{-- комментарий --}}
 
 		@if ($userAge > 18)
-		<p>ыыы</p>
+			<p>ыыы</p>
 		@elseif ($userAge == 18)
-		<p>ууу</p>
+			<p>ууу</p>
 		@elseif ($userAge < 18)
-		<p>эээ</p>
+			<p>эээ</p>
 		@else
-		<p>иии</p>
+			<p>иии</p>
 		@endif
 
 		@unless ($userAge >= 18)
-		<p>иууу</p>
+			<p>иууу</p>
 		@endunless
 
 		@foreach ($numbers as $elem)
-		<ul>
-			<li><b>{{ $elem }}</b></li>
-			<li>{{ $elem * $elem }}</li>
-			<li>{{ sqrt($elem) }}</li>
-		</ul>
+			<ul>
+				<li><b>{{ $elem }}</b></li>
+				<li>{{ $elem * $elem }}</li>
+				<li>{{ sqrt($elem) }}</li>
+			</ul>
 		@endforeach
 
 		@foreach ($numbers as $elem)
-		@if ($loop->count > 0)
-		@php
-			$sum += $elem
-		@endphp
-		@else
-		<p>массив пустой</p>
-		@endif
+			@if ($loop->count > 0)
+				@php
+					$sum += $elem
+				@endphp
+			@else
+				<p>массив пустой</p>
+			@endif
 		@endforeach
 		<p>{{ $sum }}</p>
 </x-layout>
