@@ -62,14 +62,19 @@
 		<p>иууу</p>
 		@endunless
 
-		{{ $sum = 0 }}
 		@foreach ($numbers as $elem)
 		<ul>
+			<li><b>{{ $elem }}</b></li>
 			<li>{{ $elem * $elem }}</li>
 			<li>{{ sqrt($elem) }}</li>
 		</ul>
+		@endforeach
+
+		@foreach ($numbers as $elem)
 		@if ($loop->count > 0)
-		{{ $sum += $elem }}
+		@php
+			$sum += $elem
+		@endphp
 		@else
 		<p>массив пустой</p>
 		@endif

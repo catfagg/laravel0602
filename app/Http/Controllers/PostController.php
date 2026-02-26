@@ -28,7 +28,8 @@ class PostController extends Controller
 			'day' => '14',
 			'str' => '<b>text</b>',
 			'userAge' => '24',
-			'numbers' => [4, 6, 10, 2]
+			'numbers' => [4, 6, 10, 2],
+			'sum' => 0,
 		]);
 	}
 }
