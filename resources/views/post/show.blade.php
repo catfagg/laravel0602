@@ -65,10 +65,22 @@
 		@foreach ($numbers as $elem)
 			<ul>
 				<li><b>{{ $elem }}</b></li>
-				<li>{{ $elem * $elem }}</li>
-				<li>{{ sqrt($elem) }}</li>
+				<li>{{ $elem }} * {{ $elem }} = {{ $elem * $elem }}</li>
+				<li>sqrt({{ $elem }}) = {{ sqrt($elem) }}</li>
 			</ul>
 		@endforeach
+
+		<table border="1">
+			@foreach ($dmassive as $row)
+			<tr>
+				@foreach ($row as $cell)
+				<td>
+					{{ $cell }}
+				</td>
+				@endforeach
+			</tr>
+			@endforeach
+		</table>
 
 		@foreach ($numbers as $elem)
 			@if ($loop->count > 0)
@@ -79,5 +91,23 @@
 				<p>массив пустой</p>
 			@endif
 		@endforeach
-		<p>{{ $sum }}</p>
+		<p><b>Сумма элементов массива:</b> {{ $sum }}</p>
+		
+		<b>Перебор массива до первого нулевого элемента:</b>
+		@foreach ($numbers as $elem)
+			{{ $elem }}
+			@if ($elem == 0)
+			@break
+			@endif
+		@endforeach
+
+		<ul>
+		@foreach ($numbers as $elem)
+			<li>{{ $elem }}</li>
+		@endforeach
+		</ul>
+
+		@for ($i = 1; $i < 11; $i++)
+			<p>{{ $i }}</p>
+		@endfor
 </x-layout>
