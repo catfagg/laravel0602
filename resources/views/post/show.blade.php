@@ -82,6 +82,14 @@
 			@endforeach
 		</table>
 
+		<ul>
+		@foreach ($employees as $employee)
+		<li>
+			{{ $employee['name'] }} {{ $employee['surname'] }} {{ $employee['salary'] }}
+		</li>
+		@endforeach
+		</ul>
+
 		@foreach ($numbers as $elem)
 			@if ($loop->count > 0)
 				@php
