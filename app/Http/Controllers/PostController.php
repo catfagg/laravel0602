@@ -8,7 +8,7 @@ class PostController extends Controller
 	{
 		return view('post.show', [
 			'title' => 'page title',
-			'text'  => 'page content',
+			'text' => 'page content',
 			'name' => 'иван',
 			'surname' => 'иванов',
 			'age' => 21,
@@ -18,7 +18,8 @@ class PostController extends Controller
 			'var2' => '',
 			'var3' => '',
 			'style' => 'color: red',
-			'gogl' => 'google.com',
+			'google_href' => 'https://google.com',
+			'google_text' => 'google.com',
 			'leha' => ['name2' => 'лёха', 'age2' => 24, 'salary' => 200],
 			'arrcount' => 0,
 			'city' => ['Калининград'],
@@ -28,7 +29,7 @@ class PostController extends Controller
 			'day' => '14',
 			'str' => '<b>text</b>',
 			'userAge' => '24',
-			'numbers' => [4, 6, 10, 2, 0, 32],
+			'numbers' => [4, 6, 10, 2, 0, 32, 3, 7],
 			'sum' => 0,
 			'dmassive' => [
 				[1, 2, 3, 4],
@@ -50,7 +51,9 @@ class PostController extends Controller
 					'surname' => 'surname3',
 					'salary' => 3000,
 				],
-			]
+			],
+			'strings' => ['a', 'b', 'c'],
+			'data' => [2, 4, 6],
 		]);
 	}
 }
