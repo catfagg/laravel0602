@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 			$table->integer('age');
+            $table->string('email')->comment('my comment');
 		});
     }
 
