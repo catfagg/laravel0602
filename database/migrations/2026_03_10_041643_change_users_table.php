@@ -9,8 +9,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-			$table->integer('age');
+			$table->integer('age')->nullable()->unsigned();
             $table->string('email')->comment('my comment');
+            $table->integer('salary')->default(0);
 		});
     }
 
@@ -18,6 +19,8 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 			$table->dropColumn('age');
+            $table->dropColumn('email');
+            $table->dropColumn('salary');
 		});
     }
 };
