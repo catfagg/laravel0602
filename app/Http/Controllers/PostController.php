@@ -76,7 +76,7 @@ class PostController extends Controller
 
 			DB::table('users')->skip(5)->take(10)->get();
 			
-			DB::table('users')->insert('name' => 'leha');
+			DB::table('users')->insert(['name' => 'leha']);
 
 			DB::table('users')->insertGetId([
 				'name' => 'johnny',
@@ -98,9 +98,9 @@ class PostController extends Controller
 
 			DB::table('users')->where('age', '=', 30)->update(['salary' => 500]);
 
-			DB::table('users')->where('id', '=' 34)->increment('age');
+			DB::table('users')->where('id', '=', 34)->increment('age');
 
-			DB::table('users')->where('age', '=' 30)->increment('salary', 100);
+			DB::table('users')->where('age', '=', 30)->increment('salary', 100);
 
 			DB::table('users')->where('id', '=', 5)->delete();
 
