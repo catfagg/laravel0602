@@ -72,9 +72,9 @@ class PostController extends Controller
 
 			DB::table('users')->take(3)->get();
 
-			DB::table('users')->skip(5)->take(10)->get();
-
 			DB::table('users')->where('age', '=', 30)->take(3)->get();
+
+			DB::table('users')->skip(5)->take(10)->get();
 			
 			DB::table('users')->insert('name' => 'leha');
 
