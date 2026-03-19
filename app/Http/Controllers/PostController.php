@@ -1,59 +1,104 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
 	public function show()
 	{
-		return view('post.show', [
-			'title' => 'page title',
-			'text' => 'page content',
-			'name' => 'иван',
-			'surname' => 'иванов',
-			'age' => 21,
-			'salary' => 100,
-			'class' => 'class',
-			'var1' => '',
-			'var2' => '',
-			'var3' => '',
-			'style' => 'color: red',
-			'google_href' => 'https://google.com',
-			'google_text' => 'google.com',
-			'leha' => ['name2' => 'лёха', 'age2' => 24, 'salary' => 200],
-			'arrcount' => 0,
-			'city' => ['Калининград'],
-			'location' => ['country' => 'Швеция', 'city' => 'Стокгольм'],
-			'year' => '',
-			'month' => '6',
-			'day' => '14',
-			'str' => '<b>text</b>',
-			'userAge' => '24',
-			'numbers' => [4, 6, 10, 2, 0, 32, 3, 7],
-			'sum' => 0,
-			'dmassive' => [
-				[1, 2, 3, 4],
-				[1, 2, 3, 4]
+		{	
+			DB::table('users')->get();
+
+			DB::table('users')->select('name', 'email')->get();
+
+			DB::table('posts')->where('id', '!=', 3)->get();
+
+			DB::table('users')->where('age', '=', 30)->get();
+
+			DB::table('users')->where('age', '!=', 30)->get();
+
+			DB::table('users')->where('age', '>', 30)->get();
+
+			DB::table('users')->where('age', '<', 30)->get();
+
+			DB::table('users')->where('age', '<=', 30)->get();
+
+			DB::table('users')->where('age', '>', 20)->where('age', '<', 30)->get();
+
+			DB::table('users')->where('age', '=', 30)->orWhere('id', '>', 4)->get();
+
+			DB::table('users')->where('age', '=', 30)->orWhere('salary', '=', 500)->orWhere('id', '>', 4)->get();
+
+			DB::table('users')->where('salary', '=', 500)->orWhere('age', '>', 20)->where('age', '<', 30)->get();
+
+			DB::table('users')->where('age', '>', 20)->where('age', '<', 30)->orWhere('salary', '>', 400)->where('salary', '<', 800)->get();
+
+			DB::table('users')->where('id', '=', 3)->get();
+
+			DB::table('users')->where('id', '=', 3)->first()->get();
+
+			DB::table('users')->where('id', '=', 3)->value('email')->get();
+
+			DB::table('users')->pluck('name')->get();
+
+			DB::table('users')->whereBetween('age', [30, 40])->get();
+
+			DB::table('users')->whereNotBetween('age', [30, 40])->get();
+
+			DB::table('users')->whereIn('id', [1, 2, 3, 5])->get();
+
+        	DB::table('users')->whereNotIn('id', [1, 2, 3, 5])->get();
+
+			DB::table('users')->where('name', '=', 'john')->get();
+
+			DB::table('users')->where('email', '=', 'john@mail.com')->get();
+
+			DB::table('users')->where('id', '=', 3)->where('age', '=', 20)->get();
+
+			DB::table('users')->where('id', '=', 3)->orWhere('age', '=', 20)->get();
+
+			DB::table('users')->orderBy('age', 'asc')->get();
+
+			DB::table('users')->orderBy('salary', 'desc')->get();
+
+			DB::table('users')->orderBy('created_at', 'asc')->get();
+
+			DB::table('users')->orderBy('created_at', 'desc')->get();
+
+			DB::table('users')->where('age', '>', 30)->orderBy('created_at', 'asc')->get();
+
+			DB::table('users')->inRandomOrder()->get();
+
+			DB::table('users')->where('id', '=', 5)->delete();
+
+			DB::table('users')->delete();
+
+			DB::table('users')->take(3)->get();
+
+			DB::table('users')->skip(5)->take(10)->get();
+
+			DB::table('users')->where('age', '=', 30)->take(3)->get();
+
+			DB::table('users')->where('id', 34)->increment('age');
+
+			DB::table('users')->where('age', 30)->increment('salary', 100);
+
+			DB::table('users')->insert([
+			[
+				'name' => 'john',
 			],
-			'employees' => [
-				[
-					'name' => 'user1',
-					'surname' => 'surname1',
-					'salary' => 1000,
-				],
-				[
-					'name' => 'user2',
-					'surname' => 'surname2',
-					'salary' => 2000,
-				],
-				[
-					'name' => 'user3',
-					'surname' => 'surname3',
-					'salary' => 3000,
-				],
+			[
+				'name' => 'jane',
 			],
-			'strings' => ['a', 'b', 'c'],
-			'data' => [2, 4, 6],
-		]);
+			[
+				'name' => 'joe',
+			]
+			]);
+
+			DB::table('users')->where('id', '=', 5)->update(['salary' => 10]);
+
+			DB::table('users')->where('age', '=', 30)->update(['salary' => 500]);
+		}
 	}
 }
