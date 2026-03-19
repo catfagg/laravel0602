@@ -70,19 +70,17 @@ class PostController extends Controller
 
 			DB::table('users')->inRandomOrder()->get();
 
-			DB::table('users')->where('id', '=', 5)->delete();
-
-			DB::table('users')->delete();
-
 			DB::table('users')->take(3)->get();
 
 			DB::table('users')->skip(5)->take(10)->get();
 
 			DB::table('users')->where('age', '=', 30)->take(3)->get();
+			
+			DB::table('users')->insert('name' => 'leha');
 
-			DB::table('users')->where('id', 34)->increment('age');
-
-			DB::table('users')->where('age', 30)->increment('salary', 100);
+			DB::table('users')->insertGetId([
+				'name' => 'johnny',
+			]);
 
 			DB::table('users')->insert([
 			[
@@ -99,6 +97,14 @@ class PostController extends Controller
 			DB::table('users')->where('id', '=', 5)->update(['salary' => 10]);
 
 			DB::table('users')->where('age', '=', 30)->update(['salary' => 500]);
+
+			DB::table('users')->where('id', '=' 34)->increment('age');
+
+			DB::table('users')->where('age', '=' 30)->increment('salary', 100);
+
+			DB::table('users')->where('id', '=', 5)->delete();
+
+			DB::table('users')->delete();
 		}
 	}
 }
