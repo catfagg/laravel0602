@@ -7,9 +7,9 @@ use App\Models\Posts;
 
 class PostController extends Controller
 {
-	public function getAll($order = 'date')
+	public function getAll($order = 'date', $dir = 'desc')
   	{
-		$posts = Posts::orderBy($order, 'desc')->get();
+		$posts = Posts::orderBy($order, $dir)->get();
     	return view('post.all', ['posts' => $posts]);
   	}
 
