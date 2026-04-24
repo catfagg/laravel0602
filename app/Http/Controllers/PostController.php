@@ -18,4 +18,9 @@ class PostController extends Controller
     	$post = Posts::findOrFail($id);
     	return view('post.one', ['post' => $post]);
   	}
+
+	public function newPost()
+	{
+		return '!!!';
+	}
 }
