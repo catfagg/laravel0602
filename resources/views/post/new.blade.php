@@ -4,13 +4,16 @@
 		<title>posts</title>
 	</head>
 	<body>
-		<table border=1>
-      		@foreach ($posts as $post)
-			<tr>
-        		<td><a href="{{ $post->id }}">{{ $post->id }}</a></td>
-        		<td>{{ $post->title }}</td>
-			</tr>
-      		@endforeach
-  		</table>
+		<form action="" method="GET">
+			<p>Название</p>
+			<input name="title">
+			<p>Описание</p>
+			<input name="description">
+			<p>Дата</p>
+			<input name="date" type="date">
+			<p>Текст</p>
+			<textarea name="text"></textarea>
+			<p><input type="submit"></input></p>
+		</form>
 	</body>
 </html>
