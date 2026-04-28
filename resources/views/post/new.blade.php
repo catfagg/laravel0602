@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>posts</title>
-	</head>
-	<body>
-		<form action="" method="GET">
-			<p>Название</p>
-			<input name="title">
-			<p>Описание</p>
-			<input name="description">
-			<p>Дата</p>
-			<input name="date" type="date">
-			<p>Текст</p>
-			<textarea name="text"></textarea>
-			<p><input type="submit"></input></p>
-		</form>
-	</body>
-</html>
+<form action="" method="GET">
+	<p>Название</p>
+	<input name="title">
+	<p>Описание</p>
+	<input name="description">
+	<p>Дата</p>
+	<input name="date" type="date">
+	<p>Текст</p>
+	<textarea name="text"></textarea>
+	<p><input type="submit"></input></p>
+</form>
+
