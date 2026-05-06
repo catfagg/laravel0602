@@ -23,7 +23,14 @@
 			<td>{{ $post->date }}</td>
 		</tr>
 	</table>
-	<a href="edit/{{ $post->id }}">Редактировать</a>
+	<table>
+		<tr>
+			<td><a href="edit/{{ $post->id }}">Редактировать</a></td>
+		</tr>
+		<tr>
+			<td><a href="../post/all">Все статьи</a></td>
+		</tr>
+	</table>
 </body>
 
 </html>

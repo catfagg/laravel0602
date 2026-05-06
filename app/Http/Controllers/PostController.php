@@ -39,8 +39,8 @@ class PostController extends Controller
 			$post->description = $request->description;
 			$post->date = $request->date;
 			$post->text = $request->text;
-
 			$post->save();
+			return redirect('../post/' . $id);
 		}
 
 		return view('post.edit', ['post' => $post]);

@@ -16,8 +16,5 @@
 		<tr>
 			<td><input name="submit" type="submit"></td>
 		</tr>
-		<tr>
-			<td><a href="../{{ $post->id }}">Назад</a></td>
-		</tr>
 	</table>
 </form>
