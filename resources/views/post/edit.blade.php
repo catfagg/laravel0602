@@ -1,7 +1,23 @@
 <form action="" method="POST">
-	<input name="title" value="{{ $post->title }}">
-	<input name="desc" value="{{ $post->desc }}">
-	<input name="date" value="{{ $post->date }}">
-	<textarea name="text">{{ $post->text }}</textarea>
-	<input name="submit" type="submit">
+	@csrf
+	<table>
+		<tr>
+			<td><input name="title" value="{{ $post->title }}"></td>
+		</tr>
+		<tr>
+			<td><input name="description" value="{{ $post->description }}"></td>
+		</tr>
+		<tr>
+			<td><input name="date" value="{{ $post->date }}"></td>
+		</tr>
+		<tr>
+			<td><textarea name="text">{{ $post->text }}</textarea></td>
+		</tr>
+		<tr>
+			<td><input name="submit" type="submit"></td>
+		</tr>
+		<tr>
+			<td><a href="../{{ $post->id }}">Назад</a></td>
+		</tr>
+	</table>
 </form>

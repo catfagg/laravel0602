@@ -35,12 +35,12 @@ class PostController extends Controller
 		$post = Posts::find($id);
 
 		if ($request->has('submit')) {
-				$post->title = $request->title;
-				$post->desc  = $request->desc;
-				$post->date  = $request->date;
-				$post->text  = $request->text;
-				
-				$post->save();
+			$post->title = $request->title;
+			$post->description = $request->description;
+			$post->date = $request->date;
+			$post->text = $request->text;
+
+			$post->save();
 		}
 
 		return view('post.edit', ['post' => $post]);

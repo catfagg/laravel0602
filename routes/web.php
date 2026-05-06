@@ -6,4 +6,4 @@ use App\Http\Controllers\PostController;
 Route::get('/post/all/{order?}/{dir?}', [PostController::class, 'getAll']);
 Route::get('/post/new', [PostController::class, 'newPost']);
 Route::get('/post/{id}', [PostController::class, 'getOne'])->where(['id' => '[0-9]+']);
-Route::match(['get', 'post'], 'post/edit/{id}', 'PostController@editPost');
+Route::match(['get', 'post'], 'post/edit/{id}', [PostController::class, 'editPost']);
