@@ -40,9 +40,17 @@ class PostController extends Controller
 			$post->date = $request->date;
 			$post->text = $request->text;
 			$post->save();
+			$request->flash();
 			return redirect('../post/' . $id);
 		}
 
 		return view('post.edit', ['post' => $post]);
+	}
+
+	public function delPost(Request $request, $id)
+	{
+		$post = Posts::findOrFail($id);
+		$post->delete();
+		return redirect('../post/all');
 	}
 }

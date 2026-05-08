@@ -23,14 +23,11 @@
 			<td>{{ $post->date }}</td>
 		</tr>
 	</table>
-	<table>
-		<tr>
-			<td><a href="edit/{{ $post->id }}">Редактировать</a></td>
-		</tr>
-		<tr>
-			<td><a href="../post/all">Все статьи</a></td>
-		</tr>
-	</table>
+	<p><a href="edit/{{ $post->id }}">Редактировать</a></p>
+
+	<p><a href="del/{{ $post->id }}">Удалить</a></p>
+
+	<p><a href="../post/all">Все статьи</a></p>
 </body>
 
 </html>
