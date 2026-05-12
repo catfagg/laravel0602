@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->timestamps();
+            $table->softDeletes();
         });
 
     }
@@ -23,6 +24,7 @@ return new class extends Migration {
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 };

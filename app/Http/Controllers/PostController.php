@@ -47,10 +47,23 @@ class PostController extends Controller
 		return view('post.edit', ['post' => $post]);
 	}
 
-	public function delPost(Request $request, $id)
+	public function delPost($id)
 	{
 		$post = Posts::findOrFail($id);
 		$post->delete();
 		return redirect('../post/all');
+	}
+
+	public function getDeletedPost()
+	{
+		$posts = Posts::onlyTrashed()->get();
+		return view('post.deld', ['posts' => $posts]);
+	}
+
+	public function restorePost($id)
+	{
+		$post = Posts::withTrashed()->findOrFail($id);
+		$post->restore();
+		return redirect('../post/deleted');
 	}
 }
